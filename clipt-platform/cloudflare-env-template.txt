@@ -1,0 +1,10 @@
+# Production Environment Configuration for Cloudflare Streaming
+
+# Your Cloudflare Stream Key (from Cloudflare Dashboard)
+STREAM_KEY=your_cloudflare_stream_key_here
+
+# The URL to your Cloudflare Stream (from Cloudflare Dashboard)
+REACT_APP_STREAM_URL=https://customer-CODE.cloudflarestream.com/VIDEO_ID/manifest/video.m3u8
+
+# Chat server URL
+REACT_APP_CHAT_URL=http://chat.clipts.com:3000
