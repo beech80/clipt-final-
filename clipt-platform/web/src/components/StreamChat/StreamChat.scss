@@ -1,0 +1,235 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.stream-chat {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 100%;
+  max-height: calc(100vh - 120px);
+  background-color: rgba($color-dark, 0.95);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid rgba($color-primary, 0.3);
+  position: relative;
+  
+  &--dark {
+    background-color: rgba($color-dark, 0.95);
+    color: $color-light;
+  }
+  
+  &--light {
+    background-color: rgba($color-light, 0.95);
+    color: $color-dark;
+    
+    .chat-header {
+      background-color: $color-light-alt;
+      color: $color-dark;
+      border-bottom: 1px solid rgba($color-dark, 0.1);
+    }
+    
+    .chat-input {
+      background-color: $color-light-alt;
+      border-top: 1px solid rgba($color-dark, 0.1);
+    }
+  }
+  
+  &--transparent {
+    background-color: rgba($color-dark, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    .chat-header {
+      background-color: rgba($color-dark-alt, 0.8);
+    }
+    
+    .chat-input {
+      background-color: rgba($color-dark-alt, 0.8);
+    }
+  }
+  
+  &--minimized {
+    width: 60px;
+    height: 60px;
+    min-height: auto;
+    border-radius: 50%;
+    background-color: $color-primary;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__expand-button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    color: $color-light;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: $color-light;
+      transform: scale(1.1);
+    }
+  }
+  
+  &__body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba($color-primary, 0.6) transparent;
+    position: relative;
+    
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($color-primary, 0.6);
+      border-radius: 10px;
+    }
+  }
+  
+  &__messages {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  &__loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    color: rgba($color-light, 0.7);
+    
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+  
+  &__loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba($color-primary, 0.3);
+    border-top-color: $color-primary;
+    border-radius: 50%;
+    animation: spinner 1s linear infinite;
+  }
+  
+  &__user-hover {
+    position: absolute;
+    background-color: rgba($color-dark-alt, 0.95);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    min-width: 180px;
+    pointer-events: auto;
+    
+    h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: $color-light;
+    }
+    
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    &-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      
+      button {
+        background-color: rgba($color-primary, 0.2);
+        border: 1px solid rgba($color-primary, 0.5);
+        color: $color-light;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background-color: rgba($color-primary, 0.4);
+        }
+      }
+    }
+  }
+  
+  &__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-dark, 0.95);
+    z-index: 20;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba($color-primary, 0.6) transparent;
+    
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($color-primary, 0.6);
+      border-radius: 10px;
+    }
+  }
+  
+  &__user-card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
