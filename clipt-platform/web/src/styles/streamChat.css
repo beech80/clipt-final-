@@ -1,0 +1,62 @@
+/* Stream Chat Container Styles */
+.stream-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-player-container {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-player {
+  aspect-ratio: 16/9;
+  background-color: #000;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stream-details {
+  margin-top: 15px;
+}
+
+.chat-container {
+  position: relative;
+  width: 360px;
+  height: 100%;
+}
+
+/* Test Reward Button */
+.test-reward-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #8257E5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.test-reward-button:hover {
+  background-color: #6d48c6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .stream-container {
+    flex-direction: column;
+  }
+  
+  .chat-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+  }
+}

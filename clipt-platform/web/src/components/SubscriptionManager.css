@@ -1,0 +1,462 @@
+/* SubscriptionManager.css */
+.subscription-manager {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+.subscription-manager-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: var(--primary-color, #8257E5);
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.subscription-error {
+  background-color: rgba(244, 67, 54, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.success-message {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #4CAF50;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  animation: fade-in 0.5s ease-out;
+}
+
+.success-icon {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.subscription-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.subscription-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #8257E5, #FF5722);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.current-plan-info {
+  background-color: rgba(130, 87, 229, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.current-plan-info h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.canceled-info {
+  background-color: rgba(255, 193, 7, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.subscription-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  background-color: transparent;
+  border: 1px solid #F44336;
+  color: #F44336;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #F44336;
+  color: white;
+}
+
+.tier-comparison {
+  margin: 40px 0;
+}
+
+.tier-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.tier-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 280px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.tier-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.tier-card.current-tier {
+  border-width: 2px;
+}
+
+/* Tier colors */
+.tier-card.free .tier-header {
+  background-color: #6c757d;
+}
+
+.tier-card.basic .tier-header {
+  background-color: #007bff;
+}
+
+.tier-card.premium .tier-header {
+  background-color: #6f42c1;
+}
+
+.tier-card.annual .tier-header {
+  background-color: #ffc107;
+}
+
+.tier-header {
+  padding: 20px 15px;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.tier-header h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.best-value-tag {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ffc107;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  transform: rotate(15deg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.tier-price {
+  padding: 25px 15px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tier-price .free {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.tier-price .currency {
+  font-size: 24px;
+  vertical-align: top;
+  position: relative;
+  top: 8px;
+}
+
+.tier-price .amount {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.tier-price .period {
+  font-size: 16px;
+  color: #777;
+}
+
+.savings-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.tier-benefits {
+  padding: 20px 15px;
+  flex-grow: 1;
+}
+
+.tier-benefits ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.tier-benefits li {
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.tier-benefits li:last-child {
+  border-bottom: none;
+}
+
+.benefit-check {
+  color: #28a745;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.tier-action {
+  padding: 25px 15px;
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.current-plan-button {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.resubscribe-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.upgrade-button {
+  color: white;
+}
+
+.upgrade-button.free {
+  background-color: #6c757d;
+}
+
+.upgrade-button.basic {
+  background-color: #007bff;
+}
+
+.upgrade-button.premium {
+  background-color: #6f42c1;
+}
+
+.upgrade-button.annual {
+  background-color: #ffc107;
+  color: black;
+}
+
+.confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.confirm-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confirm-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.confirm-cancel {
+  background-color: #F44336;
+  color: white;
+  flex: 1;
+}
+
+.confirm-keep {
+  background-color: #6c757d;
+  color: white;
+  flex: 1;
+}
+
+.subscription-faq {
+  margin-top: 50px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 30px;
+}
+
+.subscription-faq h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #8257E5;
+}
+
+.faq-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.faq-item h4 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.faq-item p {
+  margin-bottom: 0;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .subscription-manager {
+    padding: 15px;
+  }
+  
+  .tier-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tier-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .confirm-actions {
+    flex-direction: column;
+  }
+  
+  .subscription-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Dark Mode Override */
+@media (prefers-color-scheme: dark) {
+  .tier-card {
+    background-color: #2D2D2D;
+    border-color: #3A3A3A;
+  }
+  
+  .tier-benefits li {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .confirm-content {
+    background-color: #1E1E1E;
+  }
+  
+  .confirm-content h3 {
+    color: white;
+  }
+  
+  .faq-item {
+    background-color: #2D2D2D;
+  }
+  
+  .faq-item h4 {
+    color: white;
+  }
+  
+  .faq-item p {
+    color: #bbb;
+  }
+  
+  .current-plan-button {
+    background-color: #3A3A3A;
+    color: #ddd;
+  }
+}

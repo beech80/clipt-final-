@@ -1,0 +1,283 @@
+/* LoginForm.css */
+
+:root {
+  --primary-color: #8257E5;
+  --primary-hover: #6f42c1;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --gray-color: #6c757d;
+  --border-color: #ced4da;
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s;
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.login-form-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  padding: 2rem;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.login-form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-form-header h2 {
+  color: var(--dark-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-form-header p {
+  color: var(--gray-color);
+  font-size: 0.95rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(130, 87, 229, 0.2);
+}
+
+input.error {
+  border-color: var(--danger-color);
+}
+
+.error-text {
+  color: var(--danger-color);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.forgot-password {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.forgot-password:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.login-button {
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.login-form-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-form-footer p {
+  font-size: 0.9rem;
+  color: var(--gray-color);
+}
+
+.toggle-form-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+  padding: 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+.toggle-form-button:hover:not(:disabled) {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.toggle-form-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login-form-error-message {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-left: 3px solid var(--danger-color);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--danger-color);
+}
+
+.error-icon {
+  font-size: 1.1rem;
+}
+
+/* Password Strength Meter */
+.password-strength-meter {
+  margin-top: 0.5rem;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 0.25rem;
+}
+
+.strength-bar {
+  height: 5px;
+  flex: 1;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  transition: background-color var(--transition-speed);
+}
+
+.strength-bar.active.low {
+  background-color: var(--danger-color);
+}
+
+.strength-bar.active.medium {
+  background-color: var(--warning-color);
+}
+
+.strength-bar.active.high {
+  background-color: var(--success-color);
+}
+
+.strength-text {
+  font-size: 0.75rem;
+  color: var(--gray-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-form-container {
+    padding: 1rem;
+  }
+  
+  .login-form-card {
+    padding: 1.5rem;
+  }
+  
+  .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
